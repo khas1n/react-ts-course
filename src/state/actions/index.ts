@@ -1,16 +1,16 @@
-import { CellTypes, MoveDirection } from '../../models/cells';
-import { ActionType } from '../action-types'
+import { CellTypes, MoveDirection } from "../../models/cells";
+import { ActionType } from "../action-types";
 
 export interface MoveCellAction {
   type: ActionType.MOVE_CELL;
   payload: {
     id: string;
     direction: MoveDirection;
-  }
+  };
 }
 
 export interface DeleteCellAction {
-  type: ActionType.DELETE_CELL
+  type: ActionType.DELETE_CELL;
   payload: string;
 }
 
@@ -19,7 +19,7 @@ export interface InsertCellBeforeAction {
   payload: {
     id: string | null;
     type: CellTypes;
-  }
+  };
 }
 
 export interface UpdateCellAction {
@@ -27,10 +27,7 @@ export interface UpdateCellAction {
   payload: {
     id: string;
     content: string;
-  }
+  };
 }
 
-export type Action = MoveCellAction
-  | DeleteCellAction
-  | InsertCellBeforeAction
-  | UpdateCellAction;
+export type Action = MoveCellAction | DeleteCellAction | InsertCellBeforeAction | UpdateCellAction;

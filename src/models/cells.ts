@@ -1,4 +1,4 @@
-export type CellTypes = 'code' | 'text';
+export type CellTypes = "code" | "text";
 
 export interface Cell {
   id: string;
@@ -6,4 +6,4 @@ export interface Cell {
   type: CellTypes;
 }
 
-export type MoveDirection = 'up' | 'down';
+export type MoveDirection = "up" | "down";
