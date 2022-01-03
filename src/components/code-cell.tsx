@@ -6,6 +6,7 @@ import { Cell } from "../models/cells";
 import { useActions } from "../hooks/use-actions";
 import { useTypedSelector } from "../hooks/use-typed-selectors";
 import "./code-cell.scss";
+import { useCumulativeCode } from "../hooks/use-cumulative-code";
 
 interface CodeCellPorps {
   cell: Cell;
@@ -15,21 +16,24 @@ const CodeCell: React.FC<CodeCellPorps> = ({ cell }) => {
   const { createBundle, updateCell } = useActions();
   const bundle = useTypedSelector((state) => state.bundles[cell.id]);
 
+  const cumulativeCode = useCumulativeCode(cell.id);
+  console.log(cumulativeCode);
+
   useEffect(() => {
     if (!bundle) {
-      createBundle(cell.id, cell.content);
+      createBundle(cell.id, cumulativeCode);
       return;
     }
 
     const timer = setTimeout(async () => {
-      createBundle(cell.id, cell.content);
+      createBundle(cell.id, cumulativeCode);
     }, 750);
 
     return () => {
       clearTimeout(timer);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cell.content, cell.id, createBundle]);
+  }, [cumulativeCode, cell.id, createBundle]);
 
   return (
     <Resizable direction="vertical">
