@@ -17,7 +17,7 @@ export const useCumulativeCode = (cellId: string) => {
   
           }
         } else {
-          rootElement.querySelector("#root").innerHTML = value;
+          rootElement.innerHTML = value;
         }
       };
     `;
