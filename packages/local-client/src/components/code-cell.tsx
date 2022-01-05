@@ -15,10 +15,7 @@ interface CodeCellPorps {
 const CodeCell: React.FC<CodeCellPorps> = ({ cell }) => {
   const { createBundle, updateCell } = useActions();
   const bundle = useTypedSelector((state) => state.bundles[cell.id]);
-
   const cumulativeCode = useCumulativeCode(cell.id);
-  console.log(cumulativeCode);
-
   useEffect(() => {
     if (!bundle) {
       createBundle(cell.id, cumulativeCode);
