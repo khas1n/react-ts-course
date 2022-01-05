@@ -1,11 +1,18 @@
 {
-  "name": "local-api",
+  "name": "@jsnote-ksn/local-api",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "start": "tsc --watch --preserveWatchOutput"
+    "start": "tsc --watch --preserveWatchOutput",
+    "prepublishOnly": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +26,6 @@
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "http-proxy-middleware": "^2.0.1",
-    "local-client": "^1.0.0"
+    "@jsnote-ksn/local-client": "^1.0.0"
   }
 }
